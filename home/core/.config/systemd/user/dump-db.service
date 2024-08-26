@@ -1,0 +1,6 @@
+[Unit]
+Description=Dumb db service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "podman exec -it mariadb mysqldump --lock-tables -u nextcloud --password=nextcloud nextcloud > /home/core/state/initdb/db.sql"

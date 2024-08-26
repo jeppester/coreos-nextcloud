@@ -1,0 +1,24 @@
+[Unit]
+Description=Nextcloud Server container
+Wants=nextcloud-init.service nextcloud-cron.timer backup.timer
+After=nextcloud-init.service
+
+[Container]
+ContainerName=nextcloud
+Image=docker.io/nextcloud:apache
+AutoUpdate=registry
+UserNS=keep-id:uid=33,gid=33
+Sysctl=net.ipv4.ip_unprivileged_port_start=80
+Environment=REDIS_HOST=valkey
+EnvironmentFile=/home/core/env/nextcloud.env
+Volume=/home/core/state/nextcloud:/var/www/html:z
+Volume=/home/core/state/logs:/var/log:z
+Volume=/home/core/redis/redis-session.ini:/usr/local/etc/php/conf.d/redis-session.ini:Z
+Volume=/home/core/nextcloud-lifecycle.sh:/lifecycle.sh:z,ro
+Network=nextcloud.network
+Pod=nextcloud.pod
+IP=192.168.27.10
+
+[Service]
+Restart=always
+TimeoutStartSec=900

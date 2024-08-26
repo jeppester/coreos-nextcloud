@@ -1,0 +1,6 @@
+/home/core/env/*
+!/home/core/env/*.example
+/main.ign
+authorized_keys
+
+*.qcow2

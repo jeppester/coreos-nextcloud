@@ -1,0 +1,6 @@
+[Unit]
+Description=Acme.sh cron timer
+
+[Timer]
+OnUnitActiveSec=1day
+Unit=acme-sh-cron.service

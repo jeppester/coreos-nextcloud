@@ -1,0 +1,17 @@
+[Unit]
+Description=Acme.sh issue
+Wants=duplicity-restore.service wait-for-online.service acme-sh-cron.timer
+After=duplicity-restore.service wait-for-online.service
+
+[Container]
+ContainerName=acme-sh-issue
+Image=docker.io/neilpang/acme.sh:latest
+AutoUpdate=registry
+Exec=sh /usr/bin/acme-sh-issue.sh
+EnvironmentFile=/home/core/env/acme-sh.env
+Volume=/home/core/state/cert:/acme.sh:z
+Volume=/home/core/acme-sh-issue.sh:/usr/bin/acme-sh-issue.sh:z,ro
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes

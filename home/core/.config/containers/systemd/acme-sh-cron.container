@@ -1,0 +1,13 @@
+[Unit]
+Description=Acme.sh cron
+
+[Container]
+ContainerName=acme-sh-cron
+Image=docker.io/neilpang/acme.sh:latest
+AutoUpdate=registry
+Exec=sh -c '/usr/local/bin/--cron --server $CA --dns dns_cf -d $DOMAIN'
+EnvironmentFile=/home/core/env/acme-sh.env
+Volume=/home/core/state/cert:/acme.sh:z
+
+[Service]
+Type=oneshot

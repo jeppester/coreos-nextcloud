@@ -1,0 +1,18 @@
+[Unit]
+ConditionPathExists=!/home/core/backup-restoration-attempted
+Wants=wait-for-online.service
+After=wait-for-online.service
+
+[Container]
+ContainerName=duplicity-restore
+Image=ghcr.io/tecnativa/docker-duplicity:latest
+Exec=sh /usr/bin/restore.sh
+EnvironmentFile=/home/core/env/backup.env
+Volume=/home/core/state:/state:z
+Volume=/home/core/duplicity:/root/.cache/duplicity:z
+Volume=/home/core/restore.sh:/usr/bin/restore.sh:z,ro
+
+[Service]
+Type=oneshot
+ExecStartPost=/usr/bin/touch /home/core/backup-restoration-attempted
+RemainAfterExit=yes

@@ -1,0 +1,325 @@
+variant: fcos
+version: 1.5.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys_local:
+        - authorized_keys
+
+storage:
+  links:
+    - path: /home/core/.config/systemd/user/timers.target.wants/podman-auto-update.timer
+      target: /usr/lib/systemd/user/podman-auto-update.timer
+      user:
+        name: core
+      group:
+        name: core
+
+  directories:
+    - path: /home/core/.config
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/systemd
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/systemd/user
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/systemd/user/default.target.wants
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/systemd/user/timers.target.wants
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/systemd/user/sockets.target.wants
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/containers
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/.config/containers/systemd
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/env
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/redis
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/mariadb
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/duplicity
+      user:
+        name: core
+      group:
+        name: core
+
+    # Folders that will be backed up
+    - path: /home/core/state
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/state/initdb
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/state/cert
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/state/nextcloud
+      user:
+        name: core
+      group:
+        name: core
+    - path: /home/core/state/logs
+      user:
+        name: core
+      group:
+        name: core
+
+  files:
+    # Fix redis session
+    - path: /home/core/redis/redis-session.ini
+      user:
+        name: core
+      group:
+        name: core
+
+    # Linger
+    - path: /var/lib/systemd/linger/core
+      mode: 0644
+
+    # Env files
+    - path: /home/core/env/acme-sh.env
+      contents:
+        local: home/core/env/acme-sh.env
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/env/backup.env
+      contents:
+        local: home/core/env/backup.env
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/env/nextcloud.env
+      contents:
+        local: home/core/env/nextcloud.env
+      user:
+        name: core
+      group:
+        name: core
+
+    # Config and scripts
+    - path: /home/core/acme-sh-issue.sh
+      contents:
+        local: home/core/acme-sh-issue.sh
+      user:
+        name: core
+      group:
+        name: core
+      mode: 0744
+
+    - path: /home/core/envoy.yaml
+      contents:
+        local: home/core/envoy.yaml
+      user:
+        name: core
+      group:
+        name: core
+      mode: 0744
+
+    - path: /home/core/nextcloud-lifecycle.sh
+      contents:
+        local: home/core/nextcloud-lifecycle.sh
+      user:
+        name: core
+      group:
+        name: core
+      mode: 0744
+
+    - path: /home/core/restore.sh
+      contents:
+        local: home/core/restore.sh
+      user:
+        name: core
+      group:
+        name: core
+      mode: 0744
+
+    # Timers and non-quadlet units
+    - path: /home/core/.config/systemd/user/acme-sh-cron.timer
+      contents:
+        local: home/core/.config/systemd/user/acme-sh-cron.timer
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/systemd/user/backup.timer
+      contents:
+        local: home/core/.config/systemd/user/backup.timer
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/systemd/user/dump-db.service
+      contents:
+        local: home/core/.config/systemd/user/dump-db.service
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/systemd/user/nextcloud-cron.service
+      contents:
+        local: home/core/.config/systemd/user/nextcloud-cron.service
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/systemd/user/nextcloud-cron.timer
+      contents:
+        local: home/core/.config/systemd/user/nextcloud-cron.timer
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/systemd/user/wait-for-online.service
+      contents:
+        local: home/core/.config/systemd/user/wait-for-online.service
+      user:
+        name: core
+      group:
+        name: core
+
+    # Quadlets
+    - path: /home/core/.config/containers/systemd/acme-sh-cron.container
+      contents:
+        local: home/core/.config/containers/systemd/acme-sh-cron.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/acme-sh-issue.container
+      contents:
+        local: home/core/.config/containers/systemd/acme-sh-issue.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/collabora.container
+      contents:
+        local: home/core/.config/containers/systemd/collabora.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/duplicity-backup.container
+      contents:
+        local: home/core/.config/containers/systemd/duplicity-backup.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/duplicity-restore.container
+      contents:
+        local: home/core/.config/containers/systemd/duplicity-restore.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/envoy.container
+      contents:
+        local: home/core/.config/containers/systemd/envoy.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/mariadb.container
+      contents:
+        local: home/core/.config/containers/systemd/mariadb.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/nextcloud-init.container
+      contents:
+        local: home/core/.config/containers/systemd/nextcloud-init.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/nextcloud.container
+      contents:
+        local: home/core/.config/containers/systemd/nextcloud.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/nextcloud.network
+      contents:
+        local: home/core/.config/containers/systemd/nextcloud.network
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/nextcloud.pod
+      contents:
+        local: home/core/.config/containers/systemd/nextcloud.pod
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/valkey.container
+      contents:
+        local: home/core/.config/containers/systemd/valkey.container
+      user:
+        name: core
+      group:
+        name: core

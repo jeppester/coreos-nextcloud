@@ -1,0 +1,11 @@
+[Unit]
+Description=Nextcloud pod
+After=duplicity-restore.service acme-sh-issue.service wait-for-online.service
+Wants=duplicity-restore.service acme-sh-issue.service wait-for-online.service
+
+[Pod]
+PodName=nextcloud
+Network=nextcloud.network
+
+[Install]
+WantedBy=multi-user.target default.target

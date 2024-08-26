@@ -1,0 +1,7 @@
+[Unit]
+Description=Nextcloud Cron timer
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=5min
+Unit=nextcloud-cron.service

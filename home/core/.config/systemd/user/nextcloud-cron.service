@@ -1,0 +1,6 @@
+[Unit]
+Description=Nextcloud cron service
+
+[Service]
+Type=oneshot
+ExecStart=podman exec -it nextcloud /lifecycle.sh periodic

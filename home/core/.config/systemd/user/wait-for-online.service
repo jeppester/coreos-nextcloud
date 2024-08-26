@@ -1,0 +1,7 @@
+[Unit]
+Description=Check for system level network-online.target (for users)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nm-online -q
+RemainAfterExit=yes

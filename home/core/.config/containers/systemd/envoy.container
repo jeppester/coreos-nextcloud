@@ -1,0 +1,17 @@
+[Unit]
+Description=Envoy container
+
+[Container]
+ContainerName=envoy
+Image=docker.io/envoyproxy/envoy:v1.28-latest
+AutoUpdate=registry
+Environment=ENVOY_UID=0
+Volume=/home/core/state/cert:/etc/envoy-certificates:z,ro
+Volume=/home/core/envoy.yaml:/etc/envoy/envoy.yaml:z,ro
+PublishPort=8000:8000
+PublishPort=9000:9000
+Network=nextcloud.network
+Pod=nextcloud.pod
+
+[Service]
+Restart=always
