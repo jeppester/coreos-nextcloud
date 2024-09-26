@@ -1,0 +1,7 @@
+[Unit]
+Description=Cloudflare DDNS timer
+
+[Timer]
+OnActiveSec=0
+OnUnitActiveSec=5min
+Unit=cloudflare-ddns.service

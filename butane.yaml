@@ -195,6 +195,14 @@ storage:
       group:
         name: core
 
+    - path: /home/core/.config/systemd/user/cloudflare-ddns.timer
+      contents:
+        local: home/core/.config/systemd/user/cloudflare-ddns.timer
+      user:
+        name: core
+      group:
+        name: core
+
     - path: /home/core/.config/systemd/user/dump-db.service
       contents:
         local: home/core/.config/systemd/user/dump-db.service
@@ -239,6 +247,14 @@ storage:
     - path: /home/core/.config/containers/systemd/acme-sh-issue.container
       contents:
         local: home/core/.config/containers/systemd/acme-sh-issue.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/cloudflare-ddns.container
+      contents:
+        local: home/core/.config/containers/systemd/cloudflare-ddns.container
       user:
         name: core
       group:

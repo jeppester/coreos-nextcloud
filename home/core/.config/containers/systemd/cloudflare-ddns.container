@@ -1,0 +1,11 @@
+[Unit]
+Description=Cloudflare DDNS
+
+[Container]
+ContainerName=cloudflare-ddns
+Image=docker.io/favonia/cloudflare-ddns:latest
+AutoUpdate=registry
+EnvironmentFile=/home/core/env/ddns.env
+
+[Service]
+Type=oneshot

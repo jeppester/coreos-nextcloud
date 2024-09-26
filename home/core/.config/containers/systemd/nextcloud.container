@@ -1,6 +1,6 @@
 [Unit]
 Description=Nextcloud Server container
-Wants=nextcloud-init.service nextcloud-cron.timer backup.timer
+Wants=nextcloud-init.service nextcloud-cron.timer backup.timer cloudflare-ddns.timer
 After=nextcloud-init.service
 
 [Container]
