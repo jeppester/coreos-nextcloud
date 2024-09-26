@@ -2,6 +2,6 @@
 Description=Nextcloud Cron timer
 
 [Timer]
-OnBootSec=5min
+OnActiveSec=0
 OnUnitActiveSec=5min
 Unit=nextcloud-cron.service
