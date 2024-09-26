@@ -1,9 +1,11 @@
 [Unit]
 Description=Nextcloud Server container
+Wants=nextcloud-build.service
+After=nextcloud-build.service
 
 [Container]
 ContainerName=nextcloud-init
-Image=docker.io/nextcloud:apache
+Image=localhost/nextcloud
 AutoUpdate=registry
 UserNS=keep-id:uid=33,gid=33
 Sysctl=net.ipv4.ip_unprivileged_port_start=80

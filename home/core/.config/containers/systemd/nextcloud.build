@@ -1,0 +1,8 @@
+[Unit]
+Description=Customized nextcloud image
+Wants=wait-for-online.service
+After=wait-for-online.service
+
+[Build]
+File=/home/core/nextcloud.Containerfile
+ImageTag=localhost/nextcloud

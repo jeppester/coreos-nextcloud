@@ -5,7 +5,7 @@ After=nextcloud-init.service
 
 [Container]
 ContainerName=nextcloud
-Image=docker.io/nextcloud:apache
+Image=localhost/nextcloud
 AutoUpdate=registry
 UserNS=keep-id:uid=33,gid=33
 Sysctl=net.ipv4.ip_unprivileged_port_start=80

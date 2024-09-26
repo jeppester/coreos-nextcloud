@@ -169,6 +169,15 @@ storage:
         name: core
       mode: 0744
 
+    - path: /home/core/nextcloud.Containerfile
+      contents:
+        local: home/core/nextcloud.Containerfile
+      user:
+        name: core
+      group:
+        name: core
+      mode: 0744
+
     - path: /home/core/restore.sh
       contents:
         local: home/core/restore.sh
@@ -303,6 +312,14 @@ storage:
     - path: /home/core/.config/containers/systemd/nextcloud-init.container
       contents:
         local: home/core/.config/containers/systemd/nextcloud-init.container
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/containers/systemd/nextcloud.build
+      contents:
+        local: home/core/.config/containers/systemd/nextcloud.build
       user:
         name: core
       group:
