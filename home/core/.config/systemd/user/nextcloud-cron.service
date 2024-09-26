@@ -1,5 +1,7 @@
 [Unit]
 Description=Nextcloud cron service
+Wants=nextcloud.service
+After=nextcloud.service
 
 [Service]
 Type=oneshot

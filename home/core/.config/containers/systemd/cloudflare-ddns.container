@@ -1,5 +1,7 @@
 [Unit]
 Description=Cloudflare DDNS
+Wants=wait-for-online.service
+After=wait-for-online.service
 
 [Container]
 ContainerName=cloudflare-ddns
