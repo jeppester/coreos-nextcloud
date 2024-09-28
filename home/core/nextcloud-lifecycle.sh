@@ -67,6 +67,8 @@ nextcloud_init() {
     php occ app:enable news -f
     php occ app:install maps
     php occ app:enable maps
+    php occ app:install previewgenerator
+    php occ app:enable previewgenerator
     #php occ app:enable twofactor_totp
     #php occ app:install mail
     #php occ app:enable mail
@@ -116,10 +118,12 @@ nextcloud_periodic() {
     fi
 
     echo "nextcloud cron started"
-
     php -f /var/www/html/cron.php
-
     echo "nextcloud cron done"
+
+    echo "preview generator started"
+    php occ preview:pre-generate
+    echo "preview generator done"
 }
 
 nextcloud_status() {
