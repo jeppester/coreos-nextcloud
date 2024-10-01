@@ -2,7 +2,7 @@
 Description=Backup timer
 
 [Timer]
-OnCalendar=Mon 03:00
+OnCalendar=*-*-* 02:00:00
 Unit=duplicity-backup.service
 
 [Install]

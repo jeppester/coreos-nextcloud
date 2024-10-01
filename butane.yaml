@@ -187,6 +187,15 @@ storage:
         name: core
       mode: 0744
 
+    - path: /home/core/backup.sh
+      contents:
+        local: home/core/backup.sh
+      user:
+        name: core
+      group:
+        name: core
+      mode: 0744
+
     # Timers and non-quadlet units
     - path: /home/core/.config/systemd/user/acme-sh-cron.timer
       contents:

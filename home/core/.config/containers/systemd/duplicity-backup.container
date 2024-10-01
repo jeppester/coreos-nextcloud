@@ -6,10 +6,11 @@ Requires=dump-db.service
 [Container]
 ContainerName=duplicity-backup
 Image=ghcr.io/tecnativa/docker-duplicity:latest
-Exec=sh -c 'duplicity --full-if-older-than $FULL_IF_OLDER_THAN --s3-endpoint-url $AWS_ENDPOINT_URL --s3-region-name $AWS_REGION --volsize $VOLUME_SIZE --allow-source-mismatch /state $AWS_BUCKET'
+Exec=sh /usr/bin/backup.sh
 EnvironmentFile=/home/core/env/backup.env
 Volume=/home/core/state:/state:z
 Volume=/home/core/duplicity:/root/.cache/duplicity:z
+Volume=/home/core/backup.sh:/usr/bin/backup.sh:z,ro
 
 [Service]
 Type=oneshot
