@@ -1,12 +1,12 @@
 [Unit]
 Description=Nextcloud Server container
-Wants=nextcloud-init.service nextcloud-cron.timer backup.timer cloudflare-ddns.timer
+Wants=nextcloud-init.service nextcloud-cron.timer backup.timer cloudflare-ddns.timer nextcloud-rebuild.timer
 After=nextcloud-init.service
 
 [Container]
 ContainerName=nextcloud
 Image=localhost/nextcloud
-AutoUpdate=registry
+AutoUpdate=local
 UserNS=keep-id:uid=33,gid=33
 Sysctl=net.ipv4.ip_unprivileged_port_start=80
 Environment=REDIS_HOST=valkey

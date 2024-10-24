@@ -4,5 +4,6 @@ Wants=wait-for-online.service
 After=wait-for-online.service
 
 [Build]
+Pull=always
 File=/home/core/nextcloud.Containerfile
 ImageTag=localhost/nextcloud

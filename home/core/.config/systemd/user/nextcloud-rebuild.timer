@@ -1,0 +1,9 @@
+[Unit]
+Description=Nextcloud rebuild image timer
+
+[Timer]
+OnCalendar=*-*-* 12:00:00
+Unit=nextcloud-rebuild.service
+
+[Install]
+WantedBy=timers.target

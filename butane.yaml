@@ -253,6 +253,22 @@ storage:
       group:
         name: core
 
+    - path: /home/core/.config/systemd/user/nextcloud-rebuild.timer
+      contents:
+        local: home/core/.config/systemd/user/nextcloud-rebuild.timer
+      user:
+        name: core
+      group:
+        name: core
+
+    - path: /home/core/.config/systemd/user/nextcloud-rebuild.service
+      contents:
+        local: home/core/.config/systemd/user/nextcloud-rebuild.service
+      user:
+        name: core
+      group:
+        name: core
+
     # Quadlets
     - path: /home/core/.config/containers/systemd/acme-sh-cron.container
       contents:
