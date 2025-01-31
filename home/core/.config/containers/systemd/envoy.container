@@ -10,8 +10,8 @@ Volume=/home/core/state/cert:/etc/envoy-certificates:z,ro
 Volume=/home/core/envoy.yaml:/etc/envoy/envoy.yaml:z,ro
 PublishPort=8000:8000
 PublishPort=9000:9000
-Network=nextcloud.network
 Pod=nextcloud.pod
+Network=nextcloud.network
 
 [Service]
 Restart=always

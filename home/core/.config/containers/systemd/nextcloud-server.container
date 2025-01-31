@@ -4,7 +4,7 @@ Wants=nextcloud-init.service nextcloud-cron.timer backup.timer cloudflare-ddns.t
 After=nextcloud-init.service
 
 [Container]
-ContainerName=nextcloud
+ContainerName=nextcloud-server
 Image=localhost/nextcloud
 AutoUpdate=local
 UserNS=keep-id:uid=33,gid=33
@@ -15,9 +15,8 @@ Volume=/home/core/state/nextcloud:/var/www/html:z
 Volume=/home/core/state/logs:/var/log:z
 Volume=/home/core/redis/redis-session.ini:/usr/local/etc/php/conf.d/redis-session.ini:Z
 Volume=/home/core/nextcloud-lifecycle.sh:/lifecycle.sh:z,ro
-Network=nextcloud.network
 Pod=nextcloud.pod
-IP=192.168.27.10
+Network=nextcloud.network
 
 [Service]
 Restart=always

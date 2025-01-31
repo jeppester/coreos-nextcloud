@@ -15,9 +15,9 @@ Volume=/home/core/state/nextcloud:/var/www/html:z
 Volume=/home/core/state/logs:/var/log:z
 Volume=/home/core/redis/redis-session.ini:/usr/local/etc/php/conf.d/redis-session.ini:Z
 Volume=/home/core/nextcloud-lifecycle.sh:/lifecycle.sh:z,ro
-Network=nextcloud.network
-Pod=nextcloud.pod
 Exec=/lifecycle.sh init
+Pod=nextcloud.pod
+Network=nextcloud.network
 
 [Service]
 Type=oneshot

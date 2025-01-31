@@ -15,8 +15,8 @@ Environment=MYSQL_PASSWORD=nextcloud
 Environment=MYSQL_ROOT_PASSWORD=nextcloud
 Volume=/home/core/mariadb:/var/lib/mysql:Z
 Volume=/home/core/state/initdb:/docker-entrypoint-initdb.d:z,ro
-Network=nextcloud.network
 Pod=nextcloud.pod
+Network=nextcloud.network
 
 [Service]
 Restart=always
