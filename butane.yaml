@@ -350,9 +350,9 @@ storage:
       group:
         name: core
 
-    - path: /home/core/.config/containers/systemd/nextcloud.container
+    - path: /home/core/.config/containers/systemd/nextcloud-server.container
       contents:
-        local: home/core/.config/containers/systemd/nextcloud.container
+        local: home/core/.config/containers/systemd/nextcloud-server.container
       user:
         name: core
       group:
