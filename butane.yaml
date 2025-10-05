@@ -366,14 +366,6 @@ storage:
       group:
         name: core
 
-    - path: /home/core/.config/containers/systemd/nextcloud.pod
-      contents:
-        local: home/core/.config/containers/systemd/nextcloud.pod
-      user:
-        name: core
-      group:
-        name: core
-
     - path: /home/core/.config/containers/systemd/valkey.container
       contents:
         local: home/core/.config/containers/systemd/valkey.container

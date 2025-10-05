@@ -1,6 +1,6 @@
 [Unit]
 Description=Nextcloud Server container
-Wants=nextcloud-init.service nextcloud-cron.timer backup.timer cloudflare-ddns.timer nextcloud-rebuild.timer
+Wants=nextcloud-init.service nextcloud-cron.timer backup.timer cloudflare-ddns.timer nextcloud-rebuild.timer mariadb.service valkey.service collabora.service envoy.service
 After=nextcloud-init.service
 
 [Container]
@@ -15,9 +15,11 @@ Volume=/home/core/state/nextcloud:/var/www/html:z
 Volume=/home/core/state/logs:/var/log:z
 Volume=/home/core/redis/redis-session.ini:/usr/local/etc/php/conf.d/redis-session.ini:Z
 Volume=/home/core/nextcloud-lifecycle.sh:/lifecycle.sh:z,ro
-Pod=nextcloud.pod
 Network=nextcloud.network
 
 [Service]
 Restart=always
 TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target default.target

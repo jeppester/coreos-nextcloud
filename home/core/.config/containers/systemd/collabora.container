@@ -8,7 +8,6 @@ AutoUpdate=registry
 AddCapability=MKNOD
 Environment=DONT_GEN_SSL_CERT=true
 Environment=extra_params="--o:ssl.enable=false --o:ssl.termination=true --o:net.post_allow.host[0]=nextcloud-server --o:storage.wopi.host[0]=nextcloud-server"
-Pod=nextcloud.pod
 Network=nextcloud.network
 
 [Service]

@@ -1,7 +1,7 @@
 [Unit]
 Description=Nextcloud Server container
-Wants=nextcloud-build.service
-After=nextcloud-build.service
+Wants=nextcloud-build.service mariadb.service duplicity-restore.service acme-sh-issue.service wait-for-online.service
+After=nextcloud-build.service mariadb.service duplicity-restore.service acme-sh-issue.service wait-for-online.service
 
 [Container]
 ContainerName=nextcloud-init
@@ -16,7 +16,6 @@ Volume=/home/core/state/logs:/var/log:z
 Volume=/home/core/redis/redis-session.ini:/usr/local/etc/php/conf.d/redis-session.ini:Z
 Volume=/home/core/nextcloud-lifecycle.sh:/lifecycle.sh:z,ro
 Exec=/lifecycle.sh init
-Pod=nextcloud.pod
 Network=nextcloud.network
 
 [Service]

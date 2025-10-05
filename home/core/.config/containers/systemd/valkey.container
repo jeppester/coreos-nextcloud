@@ -5,7 +5,6 @@ Description=Nextcloud Valkey container
 ContainerName=valkey
 Image=docker.io/valkey/valkey:7.2-alpine
 AutoUpdate=registry
-Pod=nextcloud.pod
 Network=nextcloud.network
 
 [Service]
