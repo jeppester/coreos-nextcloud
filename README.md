@@ -130,18 +130,20 @@ When done the drive can then be installed in the server PC, the final setup will
 
 The server will run:
 
-- Nextcloud on port 8000
-- Collabora Office on 9000
+- Nextcloud on port **8000**
+- Collabora Office on **9000**
 
 If the server is directly connected to the internet (for instance if running in a cloud service) you should be able to access the server on these ports. Changing them isn't currently possible without making manual changes to the [envoy configuration](home/core/envoy.yaml). The changes should be fairly simple though.
 
 If the server is running behind a router, port forwarding is needed in order to make it available to the internet.
+
+**One important note before moving on**: If your ISP is using [Carrier-Grade NAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT) it won't be possible to make your server available on the internet. You don't need to pay for a static IP, but you'll need a "real" IP address.
 
 The recommended setup is to:
 - Set a static IP-address for the server
 - Forward external port 9000 to port 9000 on the server's IP
 - Forward external port 433 to port 8000 on the server's IP
 
-With these forwards in place, the server should be reachable directly on the set up cloudflare domain, and Collabora office should be working as intended.
+I cannot go into details about how to set this up in the router UI as every router has it's own UI.
 
-One important note: If your ISP is using [Carrier-Grade NAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT) it won't be possible to make your server available on the internet. You don't need to pay for a static IP, but you'll need a "real" IP address.
+With these forwards in place, the server should be reachable directly on the set up cloudflare domain, and Collabora office should be working as intended.
